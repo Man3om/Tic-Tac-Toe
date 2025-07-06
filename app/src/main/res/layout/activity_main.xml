@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/primary_bg">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/GameImage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/entry_screen"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/ScreenText"
+        android:text="@string/pick_who_goes_first"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/GameImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/X_Image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/x_group"
+        android:layout_margin="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextView"
+        app:layout_constraintEnd_toStartOf="@id/O_Image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/O_Image"
+        android:layout_margin="25dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/o_group"
+        app:layout_constraintStart_toEndOf="@id/X_Image"
+        app:layout_constraintTop_toBottomOf="@+id/TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

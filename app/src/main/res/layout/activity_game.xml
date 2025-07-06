@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/primary_bg"
+    android:padding="10dp"
+    tools:context=".GameActivity">
+
+    <TextView
+        android:id="@+id/TimeLabel"
+        style="@style/ScreenText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/score_bg"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.8"
+        tools:text="00:05" />
+
+    <TextView
+        android:id="@+id/PlayerTurn"
+        style="@style/ScreenText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@id/GameView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TimeLabel"
+        tools:text="@string/player_1_s_turn" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/GameView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        app:cardCornerRadius="44dp"
+        app:cardBackgroundColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/PlayerTurn">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+            <!-- First Row Chain (Shape0, Shape1, Shape2) -->
+            <ImageView
+                android:id="@+id/Shape0"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="ShapeClicked"
+                android:padding="8dp"
+                app:layout_constraintBottom_toTopOf="@id/Shape3"
+                app:layout_constraintEnd_toStartOf="@id/Shape1"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread"
+                tools:srcCompat="@drawable/x_shape" />
+
+            <ImageView
+                android:id="@+id/Shape1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="ShapeClicked"
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/Shape0"
+                app:layout_constraintEnd_toStartOf="@id/Shape2"
+                app:layout_constraintStart_toEndOf="@+id/Shape0"
+                app:layout_constraintTop_toTopOf="@id/Shape0"
+                tools:srcCompat="@drawable/o_shape" />
+
+            <ImageView
+                android:id="@+id/Shape2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="ShapeClicked"
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/Shape0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/Shape1"
+                app:layout_constraintTop_toTopOf="@id/Shape0"
+                tools:srcCompat="@drawable/x_shape" />
+
+            <!-- Second Row Chain (Shape3, Shape4, Shape5) -->
+            <ImageView
+                android:id="@+id/Shape3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="ShapeClicked"
+                android:padding="8dp"
+                app:layout_constraintBottom_toTopOf="@id/Shape6"
+                app:layout_constraintEnd_toStartOf="@id/Shape4"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Shape0"
+                tools:srcCompat="@drawable/x_shape" />
+
+            <ImageView
+                android:id="@+id/Shape4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="ShapeClicked"
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/Shape3"
+                app:layout_constraintEnd_toStartOf="@id/Shape5"
+                app:layout_constraintStart_toEndOf="@+id/Shape3"
+                app:layout_constraintTop_toTopOf="@id/Shape3"
+                tools:srcCompat="@drawable/o_shape" />
+
+            <ImageView
+                android:id="@+id/Shape5"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="ShapeClicked"
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/Shape3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/Shape4"
+                app:layout_constraintTop_toTopOf="@id/Shape3"
+                tools:srcCompat="@drawable/x_shape" />
+
+            <!-- Third Row Chain (Shape6, Shape7, Shape8) -->
+            <ImageView
+                android:id="@+id/Shape6"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="ShapeClicked"
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/Shape7"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Shape3"
+                tools:srcCompat="@drawable/o_shape" />
+
+            <ImageView
+                android:id="@+id/Shape7"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="ShapeClicked"
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/Shape6"
+                app:layout_constraintEnd_toStartOf="@id/Shape8"
+                app:layout_constraintStart_toEndOf="@+id/Shape6"
+                app:layout_constraintTop_toTopOf="@id/Shape6"
+                tools:srcCompat="@drawable/x_shape" />
+
+            <ImageView
+                android:id="@+id/Shape8"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="ShapeClicked"
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/Shape6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/Shape7"
+                app:layout_constraintTop_toTopOf="@id/Shape6"
+                tools:srcCompat="@drawable/o_shape" />
+
+            <View
+                android:id="@+id/VerticalLine1"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/Shape1"
+                app:layout_constraintStart_toEndOf="@id/Shape0"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/VerticalLine2"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/Shape2"
+                app:layout_constraintStart_toEndOf="@id/Shape1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/HorizontalLine1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@id/Shape4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Shape1" />
+
+            <View
+                android:id="@+id/HorizontalLine2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@id/Shape6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Shape5" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

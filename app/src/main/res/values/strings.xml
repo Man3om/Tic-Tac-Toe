@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TIC_TAC_TOE</string>
+    <string name="tix_tac_toe">Tix-Tac-Toe</string>
+    <string name="pick_who_goes_first">Pick who goes first?</string>
+    <string name="player_1_s_turn">Player 1’s Turn</string>
+    <string name="turn_of_x">Turn of X</string>
+    <string name="turn_of_o">Turn of O</string>
+    <string name="draw">Draw</string>
+    <string name="x_wins">X Wins</string>
+    <string name="o_wins">O Wins</string>
+</resources>
