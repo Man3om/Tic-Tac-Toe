@@ -106,9 +106,9 @@ public class GameActivity extends AppCompatActivity {
         } else if (counter == 9) { // No winner, and all cells are filled
             Log.d(TAG, "Game is a Draw");
             PlayerTurn.setText(R.string.draw);
+
             // Consider a short delay
             new Handler(Looper.getMainLooper()).postDelayed(this::ResetGame, 1500);
-            // Similar logic for setting up the next turn after a draw
         } else {
             // Game continues, switch turns
             IsPlayerXTurn = !IsPlayerXTurn;
@@ -125,16 +125,15 @@ public class GameActivity extends AppCompatActivity {
             if (currentShapeView != null) {
                 currentShapeView.setImageResource(0); // Clears the image
                 currentShapeView.setClickable(true);  // Re-enable clicking for the new game
-                // or currentShapeView.setEnabled(true);
             } else {
                 Log.w(TAG, "ImageView with ID " + shapeId + " not found during reset at index " + i);
             }
 
             Shapes[i] = ""; // Reset the internal board state for this cell
         }
-        counter = 0; // Reset the move counter *after* the loop
+        counter = 0;        // Reset the move counter *after* the loop
 
-         IsPlayerXTurn = true; // Reset the turn flag
+         IsPlayerXTurn = true;            // Reset the turn flag
          PlayerTurn.setText(R.string.turn_of_x); // Update the turn display
 
         Log.d(TAG, "Game reset complete. Board: " + java.util.Arrays.toString(Shapes) + ", Counter: " + counter);
@@ -168,17 +167,12 @@ public class GameActivity extends AppCompatActivity {
                 Shapes[boardIndex] = playerSymbol;
                 Log.d(TAG, "Board updated at index " + boardIndex + " with symbol: " + playerSymbol);
             } else {
-                // This case should ideally be prevented by disabling clicks on already played cells,
-                // but it's good to have a log here for debugging.
                 Log.w(TAG, "Attempted to update cell at index " + boardIndex + " which is already occupied by: " + Shapes[boardIndex]);
-                // Optionally, you could also prevent the turn change if this happens,
-                // though disabling the view is a better UX.
             }
         } else {
             Log.e(TAG, "Clicked ImageView ID " + clickedShapeId + " not found in Ids array. This should not happen.");
         }
 
-        // Use java.util.Arrays.toString for cleaner array logging
         Log.d(TAG, "Current board state: " + java.util.Arrays.toString(Shapes));
     }
 

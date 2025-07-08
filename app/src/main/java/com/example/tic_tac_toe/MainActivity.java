@@ -29,8 +29,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        // Using a local variable for the intent can make the logic slightly cleaner
-        // if you had more complex conditions or more actions before starting the activity.
         Intent intent = new Intent(this, GameActivity.class);
         boolean isPlayerX = false; // Default to O player
 
@@ -40,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             isPlayerX = true;
         } else if (viewId == R.id.O_Image) {
             Log.d(TAG, "User Choose O");
-            isPlayerX = false; // Explicitly set, though it's the default
+            // No need to change isPlayerX here; it's already false by default
         } else {
             // Handle unexpected view clicks if necessary, or simply return
             return;
